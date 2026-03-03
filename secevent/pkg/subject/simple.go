@@ -1,3 +1,6 @@
+// Copyright (c) 2023 SGNL.ai, Inc.
+// Modified by SailPoint, 2026, for custom SET Token parsing.
+
 package subject
 
 import (
@@ -204,7 +207,12 @@ func (iss *IssuerSubSubject) UnmarshalJSON(data []byte) error {
 	}
 
 	iss.format = FormatIssuerSub
-	iss.issuer = strings.TrimSpace(raw["issuer"])
+	// Accept both "issuer" and "iss" (JWT-style) for issuer; many transmitters send "iss" per OIDC/JWT convention.
+	if v := strings.TrimSpace(raw["issuer"]); v != "" {
+		iss.issuer = v
+	} else {
+		iss.issuer = strings.TrimSpace(raw["iss"])
+	}
 	iss.sub = strings.TrimSpace(raw["sub"])
 
 	return nil
