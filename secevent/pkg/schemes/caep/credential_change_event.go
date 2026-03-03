@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 // CredentialType represents the type of credential
@@ -116,11 +116,11 @@ func (e *CredentialChangeEvent) GetFriendlyName() *string {
 }
 
 func (e *CredentialChangeEvent) GetX509Issuer() *string {
-    return e.X509Issuer
+	return e.X509Issuer
 }
 
 func (e *CredentialChangeEvent) GetX509Serial() *string {
-    return e.X509Serial
+	return e.X509Serial
 }
 
 func (e *CredentialChangeEvent) GetFIDO2AAGUID() *string {

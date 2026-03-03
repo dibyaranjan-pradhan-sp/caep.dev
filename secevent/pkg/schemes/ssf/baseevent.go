@@ -1,7 +1,7 @@
 package ssf
 
 import (
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 // SSFEvent is the interface that all SSF events must implement

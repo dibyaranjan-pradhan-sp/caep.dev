@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/subject"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/subject"
 )
 
 // MultiSecEvent represents a base Security Event Token that can contain multiple events

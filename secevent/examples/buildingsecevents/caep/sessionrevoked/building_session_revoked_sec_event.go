@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/builder"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/id"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/caep"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/signing"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/subject"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/builder"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/id"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/caep"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/signing"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/subject"
 )
 
 func main() {

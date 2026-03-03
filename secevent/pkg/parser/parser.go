@@ -6,12 +6,12 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/token"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/lestrrat-go/jwx/v2/jwk"
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/token"
 
-	_ "github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/caep" // Initialize CAEP events
-	_ "github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/ssf"  // Initialize SSF events
+	_ "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/caep" // Initialize CAEP events
+	_ "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/ssf"  // Initialize SSF events
 )
 
 // Parser parses and validates SecEvents

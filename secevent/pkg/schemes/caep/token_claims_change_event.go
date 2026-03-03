@@ -3,7 +3,7 @@ package caep
 import (
 	"encoding/json"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 type TokenClaimsChangePayload struct {
@@ -112,7 +112,7 @@ func (e *TokenClaimsChangeEvent) WithReasonUser(language, reason string) *TokenC
 }
 
 func (e *TokenClaimsChangeEvent) GetClaims() map[string]interface{} {
-    return e.Claims
+	return e.Claims
 }
 
 func ParseTokenClaimsChangeEvent(data []byte) (event.Event, error) {

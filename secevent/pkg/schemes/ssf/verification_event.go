@@ -3,7 +3,7 @@ package ssf
 import (
 	"encoding/json"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 type VerificationPayload struct {

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 // AssuranceLevel represents NIST Authenticator Assurance Level (AAL)
@@ -74,15 +74,15 @@ func (e *AssuranceLevelChangeEvent) WithReasonUser(language, reason string) *Ass
 }
 
 func (e *AssuranceLevelChangeEvent) GetCurrentLevel() AssuranceLevel {
-    return e.CurrentLevel
+	return e.CurrentLevel
 }
 
 func (e *AssuranceLevelChangeEvent) GetPreviousLevel() AssuranceLevel {
-    return e.PreviousLevel
+	return e.PreviousLevel
 }
 
 func (e *AssuranceLevelChangeEvent) GetChangeDirection() ChangeDirection {
-    return e.ChangeDirection
+	return e.ChangeDirection
 }
 
 func (e *AssuranceLevelChangeEvent) Validate() error {

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
 )
 
 // ComplianceStatus represents the compliance status of a device
@@ -135,11 +135,11 @@ func (e *DeviceComplianceChangeEvent) WithReasonUser(language, reason string) *D
 }
 
 func (e *DeviceComplianceChangeEvent) GetCurrentStatus() ComplianceStatus {
-    return e.CurrentStatus
+	return e.CurrentStatus
 }
 
 func (e *DeviceComplianceChangeEvent) GetPreviousStatus() ComplianceStatus {
-    return e.PreviousStatus
+	return e.PreviousStatus
 }
 
 func ParseDeviceComplianceChangeEvent(data []byte) (event.Event, error) {
