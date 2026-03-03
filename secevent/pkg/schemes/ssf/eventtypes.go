@@ -1,7 +1,7 @@
 package ssf
 
 import (
-	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
+	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
 )
 
 // SSF Event Types as defined in the OpenID SSF specification

@@ -3,7 +3,7 @@ package caep
 import (
 	"encoding/json"
 
-	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
+	"github.com/sgnl-ai/caep.dev/secevent/pkg/event"
 )
 
 type TokenClaimsChangePayload struct {

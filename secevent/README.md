@@ -36,7 +36,7 @@ A comprehensive Go library for building, signing, parsing, and validating Securi
 ## Installation
 
 ```bash
-go get github.com/dibyaranjan-pradhan-sp/caep.dev/secevent
+go get github.com/sgnl-ai/caep.dev/secevent
 ```
 
 ---
@@ -56,10 +56,10 @@ import (
     "time"
     "context"
 
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/caep"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/builder"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/signing"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/subject"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/caep"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/builder"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/signing"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/subject"
 )
 
 func main() {
@@ -123,7 +123,7 @@ package main
 
 import (
     "fmt"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/parser"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/parser"
 )
 
 func main() {
@@ -181,8 +181,8 @@ SSF Events:
 package main
 
 import (
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/caep"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/schemes/ssf"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/caep"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/schemes/ssf"
 )
 
 func main() {
@@ -216,9 +216,9 @@ import (
     "encoding/json"
     "fmt"
 
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/event"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/builder"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/subject"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/event"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/builder"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/subject"
 )
 
 // Define your custom event type
@@ -328,7 +328,7 @@ package main
 import (
     "strings"
     "github.com/golang-jwt/jwt/v5"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/signing"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/signing"
     "context"
 )
 
@@ -405,7 +405,7 @@ The library supports various subject identifier formats as defined in RFC 9493.
 package main
 
 import (
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/subject"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/subject"
 )
 
 func main() {
@@ -446,8 +446,8 @@ Customize how SecEvent IDs (`jti`) are generated.
 package main
 
 import (
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/id"
-    "github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/builder"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/id"
+    "github.com/sgnl-ai/caep.dev/secevent/pkg/builder"
 )
 
 // Define a custom generator

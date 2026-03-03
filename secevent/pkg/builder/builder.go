@@ -1,8 +1,8 @@
 package builder
 
 import (
-	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/id"
-	"github.com/dibyaranjan-pradhan-sp/caep.dev/secevent/pkg/token"
+	"github.com/sgnl-ai/caep.dev/secevent/pkg/id"
+	"github.com/sgnl-ai/caep.dev/secevent/pkg/token"
 )
 
 // Builder provides configuration for creating SecEvents

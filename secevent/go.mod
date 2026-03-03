@@ -1,4 +1,4 @@
-module github.com/dibyaranjan-pradhan-sp/caep.dev/secevent
+module github.com/sgnl-ai/caep.dev/secevent
 
 go 1.25
 
