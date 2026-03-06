@@ -75,10 +75,10 @@ func (es *EmailSubject) Validate() error {
 }
 
 func (es *EmailSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(es.format),
-        "email":  es.email,
-    }, nil
+	return map[string]interface{}{
+		"format": string(es.format),
+		"email":  es.email,
+	}, nil
 }
 
 // PhoneSubject represents a subject identified by a phone number
@@ -141,10 +141,10 @@ func (ps *PhoneSubject) Validate() error {
 }
 
 func (ps *PhoneSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(ps.format),
-        "phone":  ps.phone,
-    }, nil
+	return map[string]interface{}{
+		"format": string(ps.format),
+		"phone":  ps.phone,
+	}, nil
 }
 
 // IssuerSubSubject represents a subject identified by an issuer and subject pair
@@ -159,7 +159,7 @@ func NewIssuerSubSubject(issuer, sub string) (*IssuerSubSubject, error) {
 	sub = strings.TrimSpace(sub)
 
 	if issuer == "" {
-		return nil, NewError(ErrCodeMissingValue, "issuer is required", "issuer")
+		return nil, NewError(ErrCodeMissingValue, "issuer is required", "iss")
 	}
 
 	if sub == "" {
@@ -186,7 +186,7 @@ func (iss *IssuerSubSubject) Sub() string {
 func (iss *IssuerSubSubject) MarshalJSON() ([]byte, error) {
 	m := map[string]string{
 		"format": string(iss.format),
-		"issuer": iss.issuer,
+		"iss":    iss.issuer,
 		"sub":    iss.sub,
 	}
 
@@ -204,7 +204,12 @@ func (iss *IssuerSubSubject) UnmarshalJSON(data []byte) error {
 	}
 
 	iss.format = FormatIssuerSub
-	iss.issuer = strings.TrimSpace(raw["issuer"])
+	// RFC 9493 uses "iss"; accept "issuer" for backward compatibility.
+	if v := strings.TrimSpace(raw["iss"]); v != "" {
+		iss.issuer = v
+	} else {
+		iss.issuer = strings.TrimSpace(raw["issuer"])
+	}
 	iss.sub = strings.TrimSpace(raw["sub"])
 
 	return nil
@@ -212,7 +217,7 @@ func (iss *IssuerSubSubject) UnmarshalJSON(data []byte) error {
 
 func (iss *IssuerSubSubject) Validate() error {
 	if strings.TrimSpace(iss.issuer) == "" {
-		return NewError(ErrCodeMissingValue, "issuer is required", "issuer")
+		return NewError(ErrCodeMissingValue, "issuer is required", "iss")
 	}
 
 	if strings.TrimSpace(iss.sub) == "" {
@@ -223,11 +228,11 @@ func (iss *IssuerSubSubject) Validate() error {
 }
 
 func (iss *IssuerSubSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(iss.format),
-        "issuer": iss.issuer,
-        "sub":    iss.sub,
-    }, nil
+	return map[string]interface{}{
+		"format": string(iss.format),
+		"iss":    iss.issuer,
+		"sub":    iss.sub,
+	}, nil
 }
 
 // URISubject represents a subject identified by a URI
@@ -288,10 +293,10 @@ func (us *URISubject) Validate() error {
 }
 
 func (us *URISubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(us.format),
-        "uri":    us.uri,
-    }, nil
+	return map[string]interface{}{
+		"format": string(us.format),
+		"uri":    us.uri,
+	}, nil
 }
 
 // OpaqueSubject represents a subject identified by an opaque identifier
@@ -352,10 +357,10 @@ func (os *OpaqueSubject) Validate() error {
 }
 
 func (os *OpaqueSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(os.format),
-        "id":     os.id,
-    }, nil
+	return map[string]interface{}{
+		"format": string(os.format),
+		"id":     os.id,
+	}, nil
 }
 
 // AccountSubject represents a subject identified by an acct URI
@@ -425,10 +430,10 @@ func (as *AccountSubject) Validate() error {
 }
 
 func (as *AccountSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(as.format),
-        "uri":    as.uri,
-    }, nil
+	return map[string]interface{}{
+		"format": string(as.format),
+		"uri":    as.uri,
+	}, nil
 }
 
 // DIDSubject represents a subject identified by a DID URL
@@ -494,10 +499,10 @@ func (ds *DIDSubject) Validate() error {
 }
 
 func (ds *DIDSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(ds.format),
-        "url":    ds.url,
-    }, nil
+	return map[string]interface{}{
+		"format": string(ds.format),
+		"url":    ds.url,
+	}, nil
 }
 
 // JWTIDSubject represents a subject identified by JWT issuer and ID
@@ -576,11 +581,11 @@ func (js *JWTIDSubject) Validate() error {
 }
 
 func (js *JWTIDSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format": string(js.format),
-        "iss":    js.iss,
-        "jti":    js.jti,
-    }, nil
+	return map[string]interface{}{
+		"format": string(js.format),
+		"iss":    js.iss,
+		"jti":    js.jti,
+	}, nil
 }
 
 // SAMLIDSubject represents a subject identified by SAML assertion issuer and ID
@@ -659,9 +664,9 @@ func (ss *SAMLIDSubject) Validate() error {
 }
 
 func (ss *SAMLIDSubject) Payload() (map[string]interface{}, error) {
-    return map[string]interface{}{
-        "format":       string(ss.format),
-        "issuer":       ss.issuer,
-        "assertion_id": ss.assertionID,
-    }, nil
+	return map[string]interface{}{
+		"format":       string(ss.format),
+		"issuer":       ss.issuer,
+		"assertion_id": ss.assertionID,
+	}, nil
 }
